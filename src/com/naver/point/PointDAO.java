@@ -70,6 +70,8 @@ public class PointDAO {
 		return result;
 	}
 	
+	
+	//selectOne
 	public PointDTO selectOne(Connection con, int num) throws Exception{
 		PointDTO pointDTO = null;
 		
@@ -99,8 +101,9 @@ public class PointDAO {
 		return pointDTO;
 	}
 	
+	
 	//selectList
-	public List<PointDTO> selectList(Connection con) throws Exception{
+	public ArrayList<PointDTO> selectList(Connection con) throws Exception{
 		PointDTO pointDTO = null;
 		ArrayList<PointDTO> ar = new ArrayList<PointDTO>();
 		
@@ -121,6 +124,9 @@ public class PointDAO {
 			
 			ar.add(pointDTO);
 		}
+		
+		rs.close();
+		st.close();
 		
 		return ar;
 	}

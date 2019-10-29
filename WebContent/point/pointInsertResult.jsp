@@ -32,6 +32,13 @@
 	int result =  pointDAO.insert(con, pointDTO);
 	
 	con.close(); //close를 여기서한다.
+	
+	String message = "등록 실패";
+	if(result>0){
+		message = "성공";
+	} else {
+		message = "실패";
+	}
 %>
         
 <!DOCTYPE html>
@@ -44,6 +51,24 @@
 
 <%= pointDTO.getName() %>
 <%= result %>
+
+<script type="text/javascript">
+	
+	/* 1번 */
+<%-- 	<% if(result>0){ %>
+		alert('성공');
+	<%} else{ %>
+		alert('실패');
+	<%}%> --%>
+	
+	/* 2번  : 위의 자바코드 있는데서 메시지를 받아서 하기*/
+	alert('<%= message %>');
+
+	location.href ="./pointList.jsp";
+</script>
+
+
+
 
 </body>
 </html>

@@ -13,7 +13,8 @@
 
 <h1>INDEX</h1>
 
-<a href="./point/pointInsert.jsp">point input</a>
+<a href="./point/pointList.jsp">Point List</a>
+
 
 
 
