@@ -16,8 +16,5 @@
 <a href="./point/pointList.jsp">Point List</a>
 
 
-
-
-
 </body>
 </html>
