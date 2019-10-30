@@ -7,19 +7,33 @@
 	request.setCharacterEncoding("UTF-8");
 	response.setCharacterEncoding("UTF-8");
 
+	int num = Integer.parseInt(request.getParameter("num"));
+	
 	PointDAO pointDAO = new PointDAO();
 	Connection con = DBConnector.getConnection();
-	int num = Integer.parseInt(request.getParameter("num"));
+	num = pointDAO.delete(con, num);
+	
+	con.close();
 
-	int result = pointDAO.delete(con, num);
-
-	String msg = "";
-
-	if (result > 0) {
+	String msg = "삭제 실패";	
+	//성공하면 삭제성공메시지, list로 돌아가기  // 실패하면 메시지x, list로 돌아가기
+	
+	if(num>0){
+		//성공은 foward
 		msg = "삭제 성공";
+		
+		request.setAttribute("msg", msg);
+		request.setAttribute("path", "./pointList.jsp");
+		//순서 주의 : 값을 넣어주고 보내는 주소를 써야한다.
+		
+		RequestDispatcher view = request.getRequestDispatcher("../common/common_result.jsp");
+		view.forward(request, response);
 	} else {
-		msg = "삭제 실패";
+		//실패는 redirect
+		response.sendRedirect("./pointList.jsp");
 	}
+	
+
 %>
 
 <!DOCTYPE html>
@@ -31,12 +45,6 @@
 <body>
 
 <h1>point delete result</h1>
-
-<script type="text/javascript">
-	alert('<%= msg %>');
-	location.href="./pointList.jsp";
-</script>
-
 
 </body>
 </html>

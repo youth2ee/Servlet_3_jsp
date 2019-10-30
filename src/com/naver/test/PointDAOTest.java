@@ -16,7 +16,7 @@ import com.naver.util.DBConnector;
 public class PointDAOTest {
 	
 	@Test //annotation 이게 있어야 테스트 진행된다.
-	public void test1() throws Exception {
+	public void connection() throws Exception {
 		Connection con = DBConnector.getConnection();
 		
 		//단정문 : null이 아니면 green, null이면 red
@@ -24,7 +24,7 @@ public class PointDAOTest {
 	}
 	
 	@Test //annotation 이게 있어야 테스트 진행된다.
-	public void test2() throws Exception {
+	public void delete() throws Exception {
 		PointDAO pointDAO = new PointDAO();
 		Connection con = DBConnector.getConnection();
 
@@ -35,7 +35,7 @@ public class PointDAOTest {
 	}
 	
 	@Test //annotation 이게 있어야 테스트 진행된다.
-	public void test3() throws Exception {
+	public void selectOne() throws Exception {
 		PointDAO pointDAO = new PointDAO();
 		Connection con = DBConnector.getConnection();
 
@@ -45,7 +45,7 @@ public class PointDAOTest {
 	}
 	
 	@Test //annotation 이게 있어야 테스트 진행된다.
-	public void test4() throws Exception {
+	public void selectList() throws Exception {
 		PointDAO pointDAO = new PointDAO();
 		Connection con = DBConnector.getConnection();
 
@@ -55,8 +55,8 @@ public class PointDAOTest {
 		assertNotEquals(0, ar.size());
 	}
 	
-	@Test
-	public void test5() throws Exception {
+	/* @Test */
+	public void insert() throws Exception {
 		PointDAO pointDAO = new PointDAO();
 		Connection con = DBConnector.getConnection();
 		
@@ -76,6 +76,25 @@ public class PointDAOTest {
 		}
 		
 		con.close();
+	}
+	
+	@Test
+	public void update() throws Exception {
+		PointDAO pointDAO = new PointDAO();
+		PointDTO pointDTO = new PointDTO();
+		Connection con = DBConnector.getConnection();
+
+		pointDTO.setName("수정2");
+		pointDTO.setKor(44);
+		pointDTO.setEng(55);
+		pointDTO.setMath(66);
+		pointDTO.setTotal(pointDTO.getKor() + pointDTO.getEng() + pointDTO.getMath());
+		pointDTO.setAvg(pointDTO.getTotal()/3);
+		pointDTO.setNum(63);
+
+		int result = pointDAO.update(con, pointDTO);
+
+		assertEquals(1, result);
 	}
 
 }

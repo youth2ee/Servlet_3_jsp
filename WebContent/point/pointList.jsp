@@ -31,6 +31,7 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
+
 </head>
 <body>
 	<div class="container">
@@ -52,12 +53,11 @@
 				<%
 					}
 				%>
+				
 			</tbody>
 		</table>
 	<a href="./pointInsert.jsp" class="btn btn-primary">INSERT</a>
 	</div>
 	
-	
-
 </body>
 </html>

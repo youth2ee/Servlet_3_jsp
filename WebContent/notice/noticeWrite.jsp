@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>point insert</title>
-
+<title>notice write</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
@@ -14,38 +13,32 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>   
-
 </head>
 <body>
-
-	<div class="container">
-		<h2>Point Insert</h2>
-		<form action="./pointInsertResult.jsp" method="post">
+<section style="background-color: rgb(240, 240, 240); height: auto;">
+<div class="container">
+		<h2>Notice Write</h2>
+		<form action="./noticeWriteResult.jsp" method="post">
 		
 			<div class="form-group">
-				<label for="name">Name:</label> 
-				<input type="text" name="name" class="form-control" id="name" placeholder="Enter name">
+				<label for="title">Title:</label> 
+				<input type="text" name="title" class="form-control" id="title" placeholder="Enter title">
 			</div>
 			
 			<div class="form-group">
-				<label for="kor">Kor:</label> 
-				<input type="text" name="kor" class="form-control" id="kor" placeholder="Enter kor">
+				<label for="writer">Writer:</label> 
+				<input type="text" name="writer" class="form-control" id="writer" placeholder="Enter writer">
 			</div>
 			
 			<div class="form-group">
-				<label for="eng">Eng:</label> 
-				<input type="text" name="eng" class="form-control" id="eng" placeholder="Enter eng">
-			</div>
-			
-			<div class="form-group">
-				<label for="math">Math:</label> 
-				<input type="text" name="math" class="form-control" id="math" placeholder="Enter math">
+				<label for="contents">Contents:</label> 
+				<textarea rows="20" cols="" name="contents" class="form-control" id="contents" placeholder="Enter contents"> </textarea>
 			</div>
 			
 			<button type="submit" class="btn btn-default">Submit</button>
 			
 		</form>
 	</div>
-
+</section>
 </body>
 </html>
