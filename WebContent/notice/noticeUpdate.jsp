@@ -36,7 +36,7 @@ con.close();
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>   
 </head>
 <body>
-<section style="background-color: rgb(240, 240, 240); height: auto;">
+<section style="background-color: rgb(240, 240, 240); height: auto; padding-bottom: 20px; height: 910px ;">
 <div class="container">
 		<h2>Notice Update</h2>
 		<form action="./noticeUpdateResult.jsp" method="post">

@@ -36,6 +36,7 @@ con.close();
 <style type="text/css">
 .div_t {
 	width: 70%;
+	height: 910px ;
 	margin: 0 auto;
  	background-color: rgb(240, 240, 240); 
 }
@@ -92,7 +93,7 @@ con.close();
 
 </head>
 <body>
-	<section style="background-color: rgb(240, 240, 240); height: auto;">
+	<section style="background-color: rgb(240, 240, 240); height: auto; padding-bottom: 20px;">
 	<div class="div_t">
 		<table class="t">
 			<thead>
@@ -128,7 +129,7 @@ con.close();
 			
 			</tbody>
 		</table>
-		
+		<br>
 		<a href="./noticeWrite.jsp" class="btn btn-primary">WRITER</a>
 		
 	</div>

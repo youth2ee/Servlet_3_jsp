@@ -23,6 +23,7 @@
 <style type="text/css">
 .div_t {
 	width: 70%;
+	height: 910px ;
 	margin: 0 auto;
  	background-color: rgb(240, 240, 240); 
 }
@@ -73,7 +74,7 @@
 
 .b5 {
 	width: inherit;
-	height: 800px;
+	height: 400px;
 }
 
 .a {
@@ -84,7 +85,7 @@
 
 </head>
 <body>
-<section style="background-color: rgb(240, 240, 240); height: auto;">
+<section style="background-color: rgb(240, 240, 240); height: auto; padding-bottom: 20px;">
 	<div class="div_t">
 		<table class="t">
 			<thead>
@@ -111,13 +112,14 @@
 				</tr>
 				
 				<tr class="b3">
-					<td class="b5" colspan="5"><%=noticeDTO.getContents() %></td>
+					<td class="b5" colspan="5" style="text-align: left; vertical-align: top; padding: 25px; height: 650px;"><%=noticeDTO.getContents() %></td>
 				</tr>
 
 			</tbody>
 		</table>
 		
 	<div>
+	<br>
   	<a href="./noticeUpdate.jsp?num=<%=noticeDTO.getNum()%>" class="btn btn-danger">update</a>
   	<a href="./noticeDelete.jsp?num=<%=noticeDTO.getNum()%>" class="btn btn-primary">delete</a>
   	</div>
