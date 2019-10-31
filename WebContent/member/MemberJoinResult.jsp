@@ -13,7 +13,6 @@
 	String name = request.getParameter("name");
 	String email = request.getParameter("email");
 	String phone = request.getParameter("phone");
-	int grade = Integer.parseInt(request.getParameter("grade"));
 
 	JoinDTO joinDTO = new JoinDTO();
 	joinDTO.setId(id);
@@ -21,7 +20,6 @@
 	joinDTO.setName(name);
 	joinDTO.setPhone(phone);
 	joinDTO.setEmail(email);
-	joinDTO.setGrade(grade);
 
 	Connection con = DBConnector.getConnection();
 	JoinDAO joinDAO = new JoinDAO();
@@ -45,10 +43,9 @@
 <title>member join result</title>
 </head>
 <body>
-	<%=id %>
-	<%=pw %>
-	<%=name %>
-	<%=email %>
-	<%=grade %>
+	<%=id%>
+	<%=pw%>
+	<%=name%>
+	<%=email%>
 </body>
 </html>

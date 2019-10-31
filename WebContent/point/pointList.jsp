@@ -34,6 +34,9 @@
 
 </head>
 <body>
+
+<%@ include file="../layout/nav.jsp" %>
+
 	<div class="container">
 		<table class="table">
 			<thead><tr><th>NUM</th><th>NAME</th><th>TOTAL</th><th>AVG</th></tr></thead>

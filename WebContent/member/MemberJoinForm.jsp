@@ -18,9 +18,12 @@
 <title>member Join</title>
 </head>
 <body>
+
+<%@ include file="../layout/nav.jsp" %>
+
 	<div class="container">
 		<div class="row">
-			<form action="MemberJoinResult.jsp" method="post">
+			<form action="./MemberJoinResult.jsp" method="post">
 				<table class="table table-bordered">
 					<thead>
 						<tr>
@@ -30,28 +33,30 @@
 					<tbody>
 						<tr>
 							<td>아이디</td>
-							<td><input type="text" name="id" placeholder="entet id"></td>
+							<td><input type="text" name="id" placeholder="entet id"
+								required="required"></td>
 						</tr>
 						<tr>
 							<td>비밀번호</td>
-							<td><input type="password" name="pw" placeholder="entet pw"></td>
+							<td><input type="password" name="pw" placeholder="entet pw"
+								required="required"></td>
 						</tr>
 						<tr>
 							<td>이름</td>
-							<td><input type="text" name="name" placeholder="entet name"></td>
+							<td><input type="text" name="name" placeholder="entet name"
+								required="required"></td>
 						</tr>
 						<tr>
 							<td>이메일</td>
-							<td><input type="text" name="email" placeholder="entet email"></td>
+							<td><input type="email" name="email"
+								placeholder="entet email" required="required"></td>
 						</tr>
 						<tr>
 							<td>전화번호</td>
-							<td><input type="text" name="phone" placeholder="entet phone"></td>
+							<td><input type="tel" name="phone" placeholder="entet phone"
+								required="required"></td>
 						</tr>
-						<tr>
-							<td>레벨</td>
-							<td><input type="text" name="grade" placeholder="entet grade"></td>
-						</tr>
+
 					</tbody>
 				</table>
 				<input type="submit" class="btn btn-primary" value="회원가입">

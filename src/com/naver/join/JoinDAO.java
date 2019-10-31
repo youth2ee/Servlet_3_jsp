@@ -10,7 +10,7 @@ public class JoinDAO {
 	public int insert(Connection con, JoinDTO joinDTO) throws Exception {
 		int result = 0;
 		
-		String sql = "insert into join values (?,?,?,?,?,1)";
+		String sql = "insert into join values (?,?,?,?,?,3)";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, joinDTO.getId());
 		st.setString(2, joinDTO.getPw());

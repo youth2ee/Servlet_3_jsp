@@ -91,6 +91,9 @@
 
 </head>
 <body>
+
+<%@ include file="../layout/nav.jsp" %>
+
 	<section
 		style="background-color: rgb(240, 240, 240); height: auto; padding-bottom: 20px;">
 		<div class="div_t">
