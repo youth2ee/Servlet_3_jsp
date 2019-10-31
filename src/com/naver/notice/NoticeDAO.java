@@ -62,7 +62,7 @@ public class NoticeDAO {
 		return noticeDTO;
 	}
 	
-	//noticeWrite insert 글쓰기
+	//noticeWrite : insert 글쓰기
 	public int noticeWrite(Connection con, NoticeDTO noticeDTO) throws Exception {
 		int result = 0;
 		

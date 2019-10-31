@@ -7,26 +7,24 @@
     pageEncoding="UTF-8"%>
 
 <%
-request.setCharacterEncoding("UTF-8");
-response.setCharacterEncoding("UTF-8");		
+	request.setCharacterEncoding("UTF-8");
+	response.setCharacterEncoding("UTF-8");
 
-int num = Integer.parseInt(request.getParameter("num"));
+	int num = Integer.parseInt(request.getParameter("num"));
 
-NoticeDAO noticeDAO = new NoticeDAO();
-Connection con = DBConnector.getConnection();
+	NoticeDAO noticeDAO = new NoticeDAO();
+	Connection con = DBConnector.getConnection();
 
-NoticeDTO noticeDTO =  noticeDAO.noticeSelect(con, num);
+	NoticeDTO noticeDTO = noticeDAO.noticeSelect(con, num);
 
-con.close();
+	con.close();
 
-if(noticeDTO == null){
-	response.sendRedirect("./noticeList.jsp");
-} else {
-	request.setAttribute("dto",noticeDTO);
-	
-	RequestDispatcher view = request.getRequestDispatcher("./noticeSelectResult.jsp");
-	view.forward(request, response);
+	if (noticeDTO == null) {
+		response.sendRedirect("./noticeList.jsp");
+	} else {
+		request.setAttribute("dto", noticeDTO);
 
-}
-
+		RequestDispatcher view = request.getRequestDispatcher("./noticeSelectResult.jsp");
+		view.forward(request, response);
+	}
 %>

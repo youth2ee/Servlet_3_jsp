@@ -5,20 +5,19 @@
 <%@page import="com.naver.notice.NoticeDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-<% 
-request.setCharacterEncoding("UTF-8");
-response.setCharacterEncoding("UTF-8");
 
-int num = Integer.parseInt(request.getParameter("num"));
+<%
+	request.setCharacterEncoding("UTF-8");
+	response.setCharacterEncoding("UTF-8");
 
-NoticeDAO noticeDAO = new NoticeDAO();
-Connection con = DBConnector.getConnection();
+	int num = Integer.parseInt(request.getParameter("num"));
 
-NoticeDTO noticeDTO = noticeDAO.noticeSelect(con, num);
+	NoticeDAO noticeDAO = new NoticeDAO();
+	Connection con = DBConnector.getConnection();
 
-con.close();
+	NoticeDTO noticeDTO = noticeDAO.noticeSelect(con, num);
 
+	con.close();
 %>
 
 <!DOCTYPE html>
@@ -33,30 +32,32 @@ con.close();
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>   
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> 
+  
 </head>
 <body>
-<section style="background-color: rgb(240, 240, 240); height: auto; padding-bottom: 20px; height: 910px ;">
-<div class="container">
-		<h2>Notice Update</h2>
-		<form action="./noticeUpdateResult.jsp" method="post">
-		
-			<input type="hidden" name="num"  value="<%=noticeDTO.getNum()%>">
-		
-			<div class="form-group">
-				<label for="title">Title:</label> 
-				<input type="text" name="title" class="form-control" id="title" value="<%=noticeDTO.getTitle()%>" placeholder="Enter title">
-			</div>
-			
-			<div class="form-group">
-				<label for="contents">Contents:</label> 
-				<textarea rows="20" cols="" name="contents" class="form-control" id="contents" placeholder="Enter contents"><%=noticeDTO.getContents()%></textarea>
-			</div>
-			
-			<button type="submit" class="btn btn-default">Submit</button>
-			
-		</form>
-	</div>
-</section>
+	<section
+		style="background-color: rgb(240, 240, 240); height: auto; padding-bottom: 20px; height: 910px;">
+		<div class="container">
+			<h2>Notice Update</h2>
+			<form action="./noticeUpdateResult.jsp" method="post">
+
+				<input type="hidden" name="num" value="<%=noticeDTO.getNum()%>">
+
+				<div class="form-group">
+					<label for="title">Title:</label> 
+					<input type="text" name="title" class="form-control" id="title" value="<%=noticeDTO.getTitle()%>" placeholder="Enter title">
+				</div>
+
+				<div class="form-group">
+					<label for="contents">Contents:</label>
+					<textarea rows="20" cols="" name="contents" class="form-control" id="contents" placeholder="Enter contents"><%=noticeDTO.getContents()%></textarea>
+				</div>
+
+				<button type="submit" class="btn btn-default">Submit</button>
+
+			</form>
+		</div>
+	</section>
 </body>
 </html>

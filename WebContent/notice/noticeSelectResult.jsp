@@ -23,9 +23,9 @@
 <style type="text/css">
 .div_t {
 	width: 70%;
-	height: 910px ;
+	height: 910px;
 	margin: 0 auto;
- 	background-color: rgb(240, 240, 240); 
+	background-color: rgb(240, 240, 240);
 }
 
 .t {
@@ -46,8 +46,8 @@
 
 .black {
 	font-weight: bold;
-	height: 50px; 
-	background-color : #252525;
+	height: 50px;
+	background-color: #252525;
 	text-align: center;
 	color: white;
 }
@@ -88,6 +88,7 @@
 <section style="background-color: rgb(240, 240, 240); height: auto; padding-bottom: 20px;">
 	<div class="div_t">
 		<table class="t">
+		
 			<thead>
 			<tr class="notice">
 				<td colspan="5">NOTICE</td>
@@ -117,14 +118,13 @@
 
 			</tbody>
 		</table>
-		
-	<div>
-	<br>
-  	<a href="./noticeUpdate.jsp?num=<%=noticeDTO.getNum()%>" class="btn btn-danger">update</a>
-  	<a href="./noticeDelete.jsp?num=<%=noticeDTO.getNum()%>" class="btn btn-primary">delete</a>
-  	</div>
-		
-	</div>
+
+			<div>
+				<br> <a href="./noticeUpdate.jsp?num=<%=noticeDTO.getNum()%>" class="btn btn-danger">update</a> 
+				<a href="./noticeDelete.jsp?num=<%=noticeDTO.getNum()%>" class="btn btn-primary">delete</a>
+			</div>
+
+		</div>
 </section>
 </body>
 </html>

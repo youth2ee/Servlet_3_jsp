@@ -10,6 +10,8 @@ public class NoticeDTO {
 	private String contents;
 	private Date reg_date;
 	private int hit;
+	
+	
 	public int getNum() {
 		return num;
 	}

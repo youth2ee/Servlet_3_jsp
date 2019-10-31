@@ -5,20 +5,18 @@
 <%@page import="com.naver.notice.NoticeDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% 
-request.setCharacterEncoding("UTF-8");
-response.setCharacterEncoding("UTF-8");
+<%
+	request.setCharacterEncoding("UTF-8");
+	response.setCharacterEncoding("UTF-8");
 
-NoticeDAO noticeDAO = new NoticeDAO();
-Connection con = DBConnector.getConnection();
+	NoticeDAO noticeDAO = new NoticeDAO();
+	Connection con = DBConnector.getConnection();
 
-ArrayList<NoticeDTO> ar = noticeDAO.noticeList(con);
+	ArrayList<NoticeDTO> ar = noticeDAO.noticeList(con);
 
-con.close();
-
+	con.close();
 %>
-    
-    
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,9 +34,9 @@ con.close();
 <style type="text/css">
 .div_t {
 	width: 70%;
-	height: 910px ;
+	height: 910px;
 	margin: 0 auto;
- 	background-color: rgb(240, 240, 240); 
+	background-color: rgb(240, 240, 240);
 }
 
 .t {
@@ -59,8 +57,8 @@ con.close();
 
 .black {
 	font-weight: bold;
-	height: 50px; 
-	background-color : #252525;
+	height: 50px;
+	background-color: #252525;
 	text-align: center;
 	color: white;
 }
@@ -93,46 +91,47 @@ con.close();
 
 </head>
 <body>
-	<section style="background-color: rgb(240, 240, 240); height: auto; padding-bottom: 20px;">
-	<div class="div_t">
-		<table class="t">
-			<thead>
-			<tr class="notice">
-				<td colspan="5">NOTICE</td>
-			</tr>
-			
-			<tr class="black">
-				<td class="b1">NO</td>
-				<td>TITLE</td>
-				<td class="b1">WRITER</td>
-				<td class="b1">DATE</td>
-				<td class="b1">HIT</td>
-			</tr>
-			</thead>
+	<section
+		style="background-color: rgb(240, 240, 240); height: auto; padding-bottom: 20px;">
+		<div class="div_t">
+			<table class="t">
+				<thead>
+					<tr class="notice">
+						<td colspan="5">NOTICE</td>
+					</tr>
 
-			<tbody>
-				<%
-					for (int i = 0; i < ar.size(); i++) {
-						NoticeDTO noticeDTO = ar.get(i);
-				%>
-				<!-- for문 안쪽 -->
-				<tr class="b3">
-					<td><%=noticeDTO.getNum()%> </td>
-					<td class="b4"><a class="a" href="./noticeSelect.jsp?num=<%=noticeDTO.getNum()%>"> <%=noticeDTO.getTitle()%></a></td>
-					<td><%=noticeDTO.getWriter()%> </td>
-					<td><%=noticeDTO.getReg_date()%> </td>
-					<td><%=noticeDTO.getHit()%> </td>
-				</tr>
-				<%
-					}
-				%>
-			
-			</tbody>
-		</table>
-		<br>
-		<a href="./noticeWrite.jsp" class="btn btn-primary">WRITER</a>
-		
-	</div>
-</section>
+					<tr class="black">
+						<td class="b1">NO</td>
+						<td>TITLE</td>
+						<td class="b1">WRITER</td>
+						<td class="b1">DATE</td>
+						<td class="b1">HIT</td>
+					</tr>
+				</thead>
+
+				<tbody>
+					<%
+						for (int i = 0; i < ar.size(); i++) {
+							NoticeDTO noticeDTO = ar.get(i);
+					%>
+					<!-- for문 안쪽 -->
+					<tr class="b3">
+						<td><%=noticeDTO.getNum()%></td>
+						<td class="b4"><a class="a"
+							href="./noticeSelect.jsp?num=<%=noticeDTO.getNum()%>"> <%=noticeDTO.getTitle()%></a></td>
+						<td><%=noticeDTO.getWriter()%></td>
+						<td><%=noticeDTO.getReg_date()%></td>
+						<td><%=noticeDTO.getHit()%></td>
+					</tr>
+					<%
+						}
+					%>
+
+				</tbody>
+			</table>
+			<br> <a href="./noticeWrite.jsp" class="btn btn-primary">WRITER</a>
+
+		</div>
+	</section>
 </body>
 </html>
