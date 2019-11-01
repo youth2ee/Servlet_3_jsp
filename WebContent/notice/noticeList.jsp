@@ -16,6 +16,20 @@
 
 	con.close();
 	
+	//쿠키발행
+	//쿠키 생성시 생성자에 키와 밸류를 입력
+	Cookie cookie = new Cookie("name","pooh");
+	
+	//쿠키가 적용되는 path : 보통 context path 적용 ( : 톰캣의 웹앱스 밑에 만들어지는 경로)
+	cookie.setPath(request.getContextPath());
+	
+	//쿠키의 유효시간 : 쿠키가 클라이언트 pc에 저장되는 시간을 설정 
+	//단위는 초단위
+	//설정을 하지않으면 웹브라우저 종료시 쿠키도 같이 종료된다.
+	cookie.setMaxAge(60*60);
+	
+	//쿠키를 클라이언트로 전송
+	response.addCookie(cookie);
 	
 %>
 
@@ -94,7 +108,7 @@
 </head>
 <body>
 
-<%@ include file="../layout/nav.jsp" %>
+<%@ include file="../layout/nav.jspf" %>
 
 	<section
 		style="background-color: rgb(240, 240, 240); height: auto; padding-bottom: 20px;">

@@ -35,7 +35,7 @@
 </head>
 <body>
 
-<%@ include file="../layout/nav.jsp" %>
+<%@ include file="../layout/nav.jspf" %>
 
 	<div class="container">
 		<table class="table">

@@ -19,7 +19,7 @@
 </head>
 <body>
 
-<%@ include file="../layout/nav.jsp" %>
+<%@ include file="../layout/nav.jspf" %>
 
 <%
 	if(memberDTO == null || memberDTO.getGrade() != 0){

@@ -87,7 +87,7 @@
 </head>
 <body>
 
-<%@ include file="../layout/nav.jsp" %>
+<%@ include file="../layout/nav.jspf" %>
 
 <section style="background-color: rgb(240, 240, 240); height: auto; padding-bottom: 20px;">
 	<div class="div_t">

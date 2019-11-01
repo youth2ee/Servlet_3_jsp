@@ -19,50 +19,44 @@
 </head>
 <body>
 
-<%@ include file="../layout/nav.jsp" %>
+<%@ include file="../layout/nav.jspf" %>
+	<section style="background-color: rgb(240, 240, 240); height: auto; padding-bottom: 20px; height: 910px;">
+		<div class="container">
+			<h2>Join</h2>
 
-	<div class="container">
-		<div class="row">
 			<form action="./MemberJoinResult.jsp" method="post">
-				<table class="table table-bordered">
-					<thead>
-						<tr>
-							<th colspan="2">회원가입</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>아이디</td>
-							<td><input type="text" name="id" placeholder="entet id"
-								required="required"></td>
-						</tr>
-						<tr>
-							<td>비밀번호</td>
-							<td><input type="password" name="pw" placeholder="entet pw"
-								required="required"></td>
-						</tr>
-						<tr>
-							<td>이름</td>
-							<td><input type="text" name="name" placeholder="entet name"
-								required="required"></td>
-						</tr>
-						<tr>
-							<td>이메일</td>
-							<td><input type="email" name="email"
-								placeholder="entet email" required="required"></td>
-						</tr>
-						<tr>
-							<td>전화번호</td>
-							<td><input type="tel" name="phone" placeholder="entet phone"
-								required="required"></td>
-						</tr>
 
-					</tbody>
-				</table>
-				<input type="submit" class="btn btn-primary" value="회원가입">
-				&nbsp;<input type="reset" class="btn" value="취소">
+				<div class="form-group">
+					<label for="id">Id:</label> 
+					<input type="text" name="id" class="form-control" id="title" placeholder="entet id" required="required">
+				</div>
+
+				<div class="form-group">
+					<label for="pw">Writer:</label>
+					<input type="password" name="pw" class="form-control" id="pw" placeholder="entet pw" required="required">
+				</div>
+
+				<div class="form-group">
+					<label for="name">Name:</label>
+					<input type="text" name="name" class="form-control" id="name" placeholder="entet name" required="required">
+				</div>
+				
+				<div class="form-group">
+					<label for="email">Email:</label>
+					<input type="email" name="email" class="form-control" id="email" placeholder="entet email" required="required">
+				</div>
+				
+				<div class="form-group">
+					<label for="phone">Phone:</label>
+					<input type="tel" name="phone" class="form-control" id="phone" placeholder="entet phone" required="required">
+				</div>
+				
+				<input type="submit" class="btn btn-default" value="회원가입">
+				<input type="reset" class="btn" value="취소">
+
 			</form>
 		</div>
-	</div>
+	</section>
+
 </body>
 </html>

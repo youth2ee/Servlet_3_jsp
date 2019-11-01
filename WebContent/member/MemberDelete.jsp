@@ -8,8 +8,8 @@
 	request.setCharacterEncoding("UTF-8");
 	response.setCharacterEncoding("UTF-8");
 
-	MemberDAO memberDAO = new MemberDAO();
 	Connection con = DBConnector.getConnection();
+	MemberDAO memberDAO = new MemberDAO();
 	MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
 
 	int result =  memberDAO.memberDelete(con, memberDTO.getId());
@@ -30,7 +30,6 @@
 		view.forward(request, response);
 	}
 
-	
 %>
 <!DOCTYPE html>
 <html>

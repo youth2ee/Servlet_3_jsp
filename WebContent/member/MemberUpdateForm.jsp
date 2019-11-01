@@ -20,7 +20,7 @@
 </head>
 <body>
 
-	<%@ include file="../layout/nav.jsp" %>
+	<%@ include file="../layout/nav.jspf" %>
 
 	<%
 		request.setCharacterEncoding("UTF-8");

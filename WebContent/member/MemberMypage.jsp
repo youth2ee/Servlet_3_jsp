@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<%@ include file="../layout/nav.jsp" %>
+<%@ include file="../layout/nav.jspf" %>
 
 
 	<%if (memberDTO == null) {%>
@@ -59,10 +59,8 @@
 					<input type="text" name="grade" class="form-control" id="grade" value="<%=memberDTO.getGrade()%>" readonly="readonly">
 				</div>					
 				
-				
 				<a href="./MemberUpdateForm.jsp" class="btn btn-danger">update</a>
 				<a href="./MemberDelete.jsp" class="btn btn-danger">delete</a>
-
 			</form>
 		</div>
 	</section>

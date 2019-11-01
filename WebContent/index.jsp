@@ -12,7 +12,7 @@
 
 </head>
 <body>
-<%@ include file="./layout/nav.jsp" %>
+<%@ include file="./layout/nav.jspf" %>
 
 
 <div class="container">
@@ -22,6 +22,18 @@
 	<%}else{ %>
 		<h1>Before Login</h1>
 	<%} %>
+
+</div>
+
+<div class="container">
+	<%
+		Cookie[] cookies =  request.getCookies();
+		for(int i=0 ; i<cookies.length ; i++){
+	%>
+		<h1>Name : <%= cookies[i].getName() %></h1>
+		<h1>Value : <%= cookies[i].getValue() %></h1>	
+	<%}%>
+
 
 </div>
 

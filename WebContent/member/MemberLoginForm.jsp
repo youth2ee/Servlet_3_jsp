@@ -1,5 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+	Cookie[] cookies = request.getCookies();
+	String id="";
+
+	//1. 
+    /* for(Cookie cookie : cookies){
+		if(cookie.getName().equals("id")){
+			id = cookie.getValue();
+			break;
+			}
+		} */
+
+    //2.
+	 	for(int i =0; i < cookies.length; i++){
+	 		if(cookies[i].getName().equals("id")){
+	 			id = cookies[i].getValue();
+	 			break;
+	 		}
+	 	}
+
+%>	
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,19 +33,26 @@
 </head>
 <body>
 
-<%@ include file="../layout/nav.jsp" %>
+<%@ include file="../layout/nav.jspf" %>
 
 	<div class="container">
 		<h2>Login</h2>
 		<form action="./MemberLoginResult.jsp" method="post">
 			<div class="form-group">
-				<label for="id">Id:</label> <input type="text" class="form-control" id="id" placeholder="Enter id" name="id">
+				<label for="id">Id:</label> 
+				<input type="text" class="form-control" id="id" placeholder="Enter id" name="id" value="<%=id%>" checked="checked">
 			</div>
+			
 			<div class="form-group">
-				<label for="pw">Password:</label> <input type="password" class="form-control" id="pw" placeholder="Enter password" name="pw">
+				<label for="pw">Password:</label> 
+				<input type="password" class="form-control" id="pw" placeholder="Enter password" name="pw">
 			</div>
+			
 			<div class="checkbox">
-				<label><input type="checkbox" name="remember">Remember me</label>
+				<label>
+					<input type="checkbox" name="remember" value="check">
+					Remember me
+				</label>
 			</div>
 			
 			<button type="submit" class="btn btn-default">Submit</button>
