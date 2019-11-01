@@ -15,6 +15,8 @@
 	ArrayList<NoticeDTO> ar = noticeDAO.noticeList(con);
 
 	con.close();
+	
+	
 %>
 
 <!DOCTYPE html>
@@ -132,7 +134,12 @@
 
 				</tbody>
 			</table>
-			<br> <a href="./noticeWrite.jsp" class="btn btn-primary">WRITER</a>
+			<br> 
+			
+			<%if (memberDTO != null && memberDTO.getGrade()==0){ %>
+				<a href="./noticeWrite.jsp" class="btn btn-primary">WRITER</a>
+			<%} %>
+			
 
 		</div>
 	</section>

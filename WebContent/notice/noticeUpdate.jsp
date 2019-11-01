@@ -36,8 +36,19 @@
   
 </head>
 <body>
-	<section
-		style="background-color: rgb(240, 240, 240); height: auto; padding-bottom: 20px; height: 910px;">
+<%@ include file="../layout/nav.jsp" %>
+
+<%
+	if(memberDTO == null && !memberDTO.getId().trim().equals(noticeDTO.getWriter().trim())){
+		//관리자가 아니므로 바로 인덱스로 보낸다. 
+		request.setAttribute("msg", "글 수정 권한이 없습니다.");
+		request.setAttribute("path", "../index.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("../common/common_result.jsp");
+		view.forward(request, response);
+	}
+%>
+
+	<section style="background-color: rgb(240, 240, 240); height: auto; padding-bottom: 20px; height: 910px;">
 		<div class="container">
 			<h2>Notice Update</h2>
 			<form action="./noticeUpdateResult.jsp" method="post">

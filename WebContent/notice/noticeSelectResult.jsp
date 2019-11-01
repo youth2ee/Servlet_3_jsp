@@ -1,3 +1,4 @@
+<%@page import="com.naver.member.MemberDTO"%>
 <%@page import="com.naver.notice.NoticeDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -85,6 +86,9 @@
 
 </head>
 <body>
+
+<%@ include file="../layout/nav.jsp" %>
+
 <section style="background-color: rgb(240, 240, 240); height: auto; padding-bottom: 20px;">
 	<div class="div_t">
 		<table class="t">
@@ -105,11 +109,11 @@
 
 			<tbody>
 				<tr class="b3">
-					<td><%=noticeDTO.getNum()%> </td>
+					<td><%=noticeDTO.getNum()%></td>
 					<td class="b4"><a class="a" href="./noticeSelect.jsp?num=<%=noticeDTO.getNum()%>"> <%=noticeDTO.getTitle()%></a></td>
-					<td><%=noticeDTO.getWriter()%> </td>
-					<td><%=noticeDTO.getReg_date()%> </td>
-					<td><%=noticeDTO.getHit()%> </td>
+					<td><%=noticeDTO.getWriter()%></td>
+					<td><%=noticeDTO.getReg_date()%></td>
+					<td><%=noticeDTO.getHit()%></td>
 				</tr>
 				
 				<tr class="b3">
@@ -119,10 +123,13 @@
 			</tbody>
 		</table>
 
-			<div>
-				<br> <a href="./noticeUpdate.jsp?num=<%=noticeDTO.getNum()%>" class="btn btn-danger">update</a> 
+			
+			<% if(memberDTO != null && memberDTO.getId().trim().equals(noticeDTO.getWriter().trim())) {%>
+				<br>
+				<a href="./noticeUpdate.jsp?num=<%=noticeDTO.getNum()%>" class="btn btn-danger">update</a> 
 				<a href="./noticeDelete.jsp?num=<%=noticeDTO.getNum()%>" class="btn btn-primary">delete</a>
-			</div>
+			<%} %>
+			
 
 		</div>
 </section>

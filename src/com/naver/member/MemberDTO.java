@@ -1,6 +1,6 @@
-package com.naver.join;
+package com.naver.member;
 
-public class JoinDTO {
+public class MemberDTO {
 	
 	private String id;
 	private String pw;

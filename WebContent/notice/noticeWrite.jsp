@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>    
+    
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,28 +18,38 @@
 
 </head>
 <body>
-	<section
-		style="background-color: rgb(240, 240, 240); height: auto; padding-bottom: 20px; height: 910px;">
+
+<%@ include file="../layout/nav.jsp" %>
+
+<%
+	if(memberDTO == null || memberDTO.getGrade() != 0){
+		//관리자가 아니므로 바로 인덱스로 보낸다. 
+		request.setAttribute("msg", "글 작성 권한이 없습니다.");
+		request.setAttribute("path", "../index.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("../common/common_result.jsp");
+		view.forward(request, response);
+	}
+%>
+
+	<section style="background-color: rgb(240, 240, 240); height: auto; padding-bottom: 20px; height: 910px;">
 		<div class="container">
 			<h2>Notice Write</h2>
 
 			<form action="./noticeWriteResult.jsp" method="post">
 
 				<div class="form-group">
-					<label for="title">Title:</label> <input type="text" name="title"
-						class="form-control" id="title" placeholder="Enter title">
+					<label for="title">Title:</label> 
+					<input type="text" name="title" class="form-control" id="title" placeholder="Enter title">
 				</div>
 
 				<div class="form-group">
-					<label for="writer">Writer:</label> <input type="text"
-						name="writer" class="form-control" id="writer"
-						placeholder="Enter writer">
+					<label for="writer">Writer:</label>
+					<input type="text" name="writer" class="form-control" id="writer" readonly="readonly" value="<%=memberDTO.getId()%> ">
 				</div>
 
 				<div class="form-group">
 					<label for="contents">Contents:</label>
-					<textarea rows="20" cols="" name="contents" class="form-control"
-						id="contents" placeholder="Enter contents"> </textarea>
+					<textarea rows="20" cols="" name="contents" class="form-control" id="contents" placeholder="Enter contents"> </textarea>
 				</div>
 
 				<button type="submit" class="btn btn-default">Submit</button>

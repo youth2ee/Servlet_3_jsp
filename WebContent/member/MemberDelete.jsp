@@ -1,41 +1,44 @@
 <%@page import="com.naver.member.MemberDTO"%>
 <%@page import="com.naver.util.DBConnector"%>
 <%@page import="java.sql.Connection"%>
-<%@page import="com.naver.notice.NoticeDAO"%>
-<%@page import="com.naver.notice.NoticeDTO"%>
+<%@page import="com.naver.member.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 	request.setCharacterEncoding("UTF-8");
 	response.setCharacterEncoding("UTF-8");
 
-	int num = Integer.parseInt(request.getParameter("num"));
-
-	NoticeDAO noticeDAO = new NoticeDAO();
+	MemberDAO memberDAO = new MemberDAO();
 	Connection con = DBConnector.getConnection();
-	int result = noticeDAO.noticeDelete(con, num);
+	MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
 
+	int result =  memberDAO.memberDelete(con, memberDTO.getId());
+	
 	con.close();
-
+	
 	String msg = "삭제 실패";
-
-	if (result > 0) {
+	
+	if(result > 0){
 		msg = "삭제 성공";
+		session.removeAttribute("member");
+		response.sendRedirect("../index.jsp");
+	} else {
 		request.setAttribute("msg", msg);
-		request.setAttribute("path", "./noticeList.jsp");
-
+		request.setAttribute("path", "../index.jsp");
+		
 		RequestDispatcher view = request.getRequestDispatcher("../common/common_result.jsp");
 		view.forward(request, response);
-	} else {
-		response.sendRedirect("./noticeList.jsp");
 	}
+
+	
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>notice delete</title>
+<title>Insert title here</title>
 </head>
 <body>
+
 </body>
 </html>

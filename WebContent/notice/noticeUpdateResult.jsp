@@ -37,6 +37,7 @@
 		RequestDispatcher view = request.getRequestDispatcher("../common/common_result.jsp");
 		view.forward(request, response);
 	}
+
 %>
 <!DOCTYPE html>
 <html>

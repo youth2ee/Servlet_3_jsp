@@ -15,7 +15,7 @@
 
 	<div class="container">
 		<h2>Login</h2>
-		<form action="/action_page.php">
+		<form action="./MemberLoginResult.jsp" method="post">
 			<div class="form-group">
 				<label for="id">Id:</label> <input type="text" class="form-control" id="id" placeholder="Enter id" name="id">
 			</div>
@@ -25,6 +25,7 @@
 			<div class="checkbox">
 				<label><input type="checkbox" name="remember">Remember me</label>
 			</div>
+			
 			<button type="submit" class="btn btn-default">Submit</button>
 		</form>
 	</div>

@@ -1,5 +1,5 @@
-<%@page import="com.naver.join.JoinDTO"%>
-<%@page import="com.naver.join.JoinDAO"%>
+<%@page import="com.naver.member.MemberDTO"%>
+<%@page import="com.naver.member.MemberDAO"%>
 <%@page import="com.naver.util.DBConnector"%>
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -14,16 +14,16 @@
 	String email = request.getParameter("email");
 	String phone = request.getParameter("phone");
 
-	JoinDTO joinDTO = new JoinDTO();
-	joinDTO.setId(id);
-	joinDTO.setPw(pw);
-	joinDTO.setName(name);
-	joinDTO.setPhone(phone);
-	joinDTO.setEmail(email);
+	MemberDTO memberDTO = new MemberDTO();
+	memberDTO.setId(id);
+	memberDTO.setPw(pw);
+	memberDTO.setName(name);
+	memberDTO.setPhone(phone);
+	memberDTO.setEmail(email);
 
 	Connection con = DBConnector.getConnection();
-	JoinDAO joinDAO = new JoinDAO();
-	int result = joinDAO.insert(con, joinDTO);
+	MemberDAO memberDAO = new MemberDAO();
+	int result = memberDAO.insert(con, memberDTO);
 
 	String msg = "회원가입 실패";
 	if (result > 0) {
